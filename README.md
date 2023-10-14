@@ -1,29 +1,56 @@
-![img](https://assets.imaginablefutures.com/media/images/ALX_Logo.max-200x150.png)
-> printf project
+# _printf
+A formatted output conversion C program. It is a pseudo-recreation of the C standard library function `printf`
 
-## About 
-In this project, we are required to implement the ```printf``` function in C from scratch 
+## Synopsis
+`int _printf(const char *format, ...);`
 
+## Dependencies
+All files will be complied on Ubuntu 20.04LTS using gcc, using the options `gcc -Wall -Werror -Wextra -pedantic -Wno-format -std=gnu89 *.c`
 
-## Resources 
-1. [Secrets of printf](https://www.academia.edu/10297206/Secrets_of_printf_)
+## Usage
+After complilation, `_printf()` is ready for use.
+### Example `main.c`:
+```c
+    include "printf.h"
 
-## Man/Help 
-- printf(3)
+    int main(void)
+    {
+         _printf("This is an implementation of %s\n", "printf");
+    }
+```
+Complilation:
+```shell
+    gcc -Wall -Werror -Wextra -pedantic -Wno-format -std=gnu89 *.c -o tester
+```
+Output:
+```shell
+    $ ./tester
+    This is an implementation of printf
+    $
+```
+## Description
+The `_printf()` function produces output in accordance to a specified format. This function prints its output to the stdout and returns the length of the output when successful.
 
-## Authorized funtions / macros
-    write (man 2 write)
-    malloc (man 3 malloc)
-    free (man 3 free)
-    va_start (man 3 va_start)
-    va_end (man 3 va_end)
-    va_copy (man 3 va_copy)
-    va_arg (man 3 va_arg)
+## Conversion Specifiers
+- %c: Character specifier
+- %d: Decimal specifier
+- %i: Integer specifier
+- %s: String specifier (character pointer)
+- %%: Print the percentage sign
+- %o: Octal specifier
+- %x: Hexadecimal specifier
+- %X: Hexadecimal specifier (Uppercase)
+- %p: Address specifier
 
-## Compilation
-Your code will be compiled with the following flags 
+## Custom Specifiers
+- %b: Binary specifier
+- %R: rot13'ed specifier
+- %r: reversed specifier
+- %S: String specifier.
+ (Non printable characters (0 < ASCII value < 32 or >= 127) are printed this way: \x, followed by the ASCII code value in hexadecimal (upper case - always 2 characters))
 
-~~~
-gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c
+# Author
+- [David Bakare](https://github.com/3akare)
+# Acknowledgments
+This project was written as part of the curriculum for Holberton/ALX-SE program
 
-~~~
